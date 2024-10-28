@@ -7,7 +7,7 @@ resource "aws_cloudwatch_metric_alarm" "lambda_error_alarm" {
   period              = 60
   statistic           = "Sum"
   threshold           = var.threshold
-  alarm_description   = "Alarm when the Lambda function has errors"
+  alarm_description   = "Lambda function ${var.lambda_name} has an error count greater than or equal to ${var.threshold}"
   dimensions = {
     FunctionName = var.lambda_name
   }
